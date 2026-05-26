@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>制作実績一覧｜Omoi Web Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@700&family=Kaisei+Tokumin:wght@700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VFR6WNWB35"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VFR6WNWB35');
+</script>
+<style>
+  :root {
+    --ocean:      #1a6b8a;
+    --ocean-mid:  #3a9dba;
+    --ocean-pale: #d4eef5;
+    --forest:     #3d6b47;
+    --forest-pale:#dceede;
+    --sunset:     #d4724a;
+    --bg:         #f9f6f0;
+    --white:      #ffffff;
+    --text:       #1e1e1e;
+    --text-sub:   #5a5a5a;
+    --border:     #e2d9cc;
+    --radius:     12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.8; }
+
+  header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 0 5%; }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-family: 'Kaisei Tokumin', serif; font-size: 1.4rem; font-weight: 700; color: var(--ocean); text-decoration: none; }
+  .logo span { color: var(--sunset); }
+  .btn-contact { background: var(--ocean); color: var(--white); padding: 0.5rem 1.25rem; border-radius: 99px; font-size: 0.85rem; text-decoration: none; font-weight: 700; }
+
+  .page-hero { background: linear-gradient(160deg, #e8f4f9 0%, #f9f6f0 100%); padding: 56px 5% 48px; text-align: center; }
+  .page-hero h1 { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.5rem; }
+  .page-hero p { font-size: 0.9rem; color: var(--text-sub); }
+
+  .content { max-width: 1100px; margin: 0 auto; padding: 48px 5% 80px; }
+
+  /* ソート・フィルター */
+  .controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .controls label { font-size: 0.85rem; font-weight: 700; color: var(--text-sub); }
+  .controls select {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .controls-divider { width: 1px; height: 24px; background: var(--border); }
+  .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .filter-tab { padding: 0.35rem 0.9rem; border-radius: 99px; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: 2px solid var(--border); background: var(--white); color: var(--text-sub); transition: all 0.2s; font-family: inherit; }
+  .filter-tab.active, .filter-tab:hover { background: var(--ocean); color: var(--white); border-color: var(--ocean); }
+
+  /* グリッド */
+  .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+
+  .work-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: box-shadow 0.2s; }
+  .work-card:hover { box-shadow: 0 4px 20px rgba(26,107,138,0.1); }
+  .work-thumb { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, var(--ocean-pale), var(--forest-pale)); }
+  .work-body { padding: 1.25rem; }
+  .work-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .tag { font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 99px; }
+  .tag-genre { background: var(--ocean-pale); color: var(--ocean); }
+  .tag-area { background: var(--forest-pale); color: var(--forest); }
+  .tag-omakase { background: #fdf0e8; color: var(--sunset); }
+  .tag-light { background: var(--ocean-pale); color: var(--ocean); }
+  .work-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .work-body .work-date { font-size: 0.78rem; color: var(--text-sub); margin-bottom: 0.5rem; }
+  .work-body p { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 1rem; }
+  .work-link { display: inline-block; background: var(--ocean); color: var(--white); font-size: 0.8rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 99px; text-decoration: none; }
+  .work-link.disabled { opacity: 0.4; pointer-events: none; }
+
+  .empty-msg { text-align: center; padding: 3rem; color: var(--text-sub); font-size: 0.93rem; grid-column: 1/-1; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ocean); color: var(--white); padding: 0.75rem 1.75rem; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 0.9rem; margin-top: 2.5rem; }
+
+  footer { background: #0f3d50; color: rgba(255,255,255,0.6); text-align: center; padding: 2rem 5%; font-size: 0.82rem; }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 1rem; }
+  footer a:hover { color: var(--white); }
+  .footer-logo { font-family: 'Kaisei Tokumin', serif; font-size: 1.3rem; color: var(--white); font-weight: 700; display: block; margin-bottom: 0.75rem; }
+  .footer-logo span { color: var(--ocean-pale); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Omoi<span>Web</span>Works</a>
+    <a href="index.html#contact" class="btn-contact">無料相談</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>制作実績一覧</h1>
+  <p>Omoi Web Worksが制作させていただいたお店をご紹介します</p>
+</div>
+
+<div class="content">
+
+  <!-- コントロール -->
+  <div class="controls">
+    <label>並び替え：</label>
+    <select id="sortSelect" onchange="renderWorks()">
+      <option value="date-desc">制作日（新しい順）</option>
+      <option value="date-asc">制作日（古い順）</option>
+      <option value="name-asc">店舗名（あいうえお順）</option>
+      <option value="name-desc">店舗名（逆順）</option>
+    </select>
+    <div class="controls-divider"></div>
+    <label>業種：</label>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-tab active" onclick="setFilter('all', this)">すべて</button>
+      <button class="filter-tab" onclick="setFilter('カフェ・飲食店', this)">カフェ・飲食店</button>
+      <button class="filter-tab" onclick="setFilter('整体院・治療院', this)">整体院・治療院</button>
+      <button class="filter-tab" onclick="setFilter('美容室・サロン', this)">美容室・サロン</button>
+      <button class="filter-tab" onclick="setFilter('小売店', this)">小売店</button>
+      <button class="filter-tab" onclick="setFilter('その他', this)">その他</button>
+    </div>
+  </div>
+
+  <!-- 実績グリッド -->
+  <div class="works-grid" id="worksGrid"></div>
+
+  <a href="index.html" class="back-btn">← トップページに戻る</a>
+</div>
+
+<footer>
+  <span class="footer-logo">Omoi<span>Web</span>Works</span>
+  <div style="margin-bottom:0.75rem;">
+    <a href="index.html">トップページ</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="index.html#contact">お問い合わせ</a>
+  </div>
+  <p>© 2026 Omoi Web Works. 大阪府泉州エリアを中心に活動中。</p>
+</footer>
+
+<script>
+  // ============================
+  // 実績データ
+  // 新しい実績が増えたらここに追加するだけ！
+  // plan: "omakase" = おまかせ保守, "light" = ライト保守, "none" = 買い切りのみ
+  // ============================
+  const works = [
+    {
+      id: 1,
+      name: "○○カフェ（サンプル）",
+      genre: "カフェ・飲食店",
+      area: "泉州エリア",
+      plan: "omakase",
+      date: "2026-06-01",
+      emoji: "☕",
+      desc: "こだわりのコーヒーと手作りスイーツが人気の地域密着カフェ。",
+      url: ""
+    },
+    {
+      id: 2,
+      name: "○○整体院（サンプル）",
+      genre: "整体院・治療院",
+      area: "泉州エリア",
+      plan: "omakase",
+      date: "2026-06-01",
+      emoji: "💆",
+      desc: "肩こり・腰痛でお悩みの方に寄り添う整体院。",
+      url: ""
+    },
+    {
+      id: 3,
+      name: "○○美容室（サンプル）",
+      genre: "美容室・サロン",
+      area: "泉州エリア",
+      plan: "light",
+      date: "2026-06-01",
+      emoji: "✂️",
+      desc: "地域に愛される美容室。幅広いメニューを丁寧な技術でご提供。",
+      url: ""
+    }
+  ];
+
+  let currentFilter = "all";
+
+  function setFilter(genre, btn) {
+    currentFilter = genre;
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderWorks();
+  }
+
+  function renderWorks() {
+    const sort = document.getElementById('sortSelect').value;
+    const grid = document.getElementById('worksGrid');
+
+    let filtered = currentFilter === 'all'
+      ? [...works]
+      : works.filter(w => w.genre === currentFilter);
+
+    filtered.sort((a, b) => {
+      if (sort === 'date-desc') return new Date(b.date) - new Date(a.date);
+      if (sort === 'date-asc') return new Date(a.date) - new Date(b.date);
+      if (sort === 'name-asc') return a.name.localeCompare(b.name, 'ja');
+      if (sort === 'name-desc') return b.name.localeCompare(a.name, 'ja');
+    });
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p class="empty-msg">該当する実績はまだありません。</p>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map(w => {
+      const planTag = '';
+      const linkBtn = w.url
+        ? `<a href="${w.url}" target="_blank" class="work-link">ホームページを見る →</a>`
+        : `<a href="#" class="work-link disabled">ホームページを見る →</a>`;
+      return `
+        <div class="work-card">
+          <div class="work-thumb">${w.emoji}</div>
+          <div class="work-body">
+            <div class="work-tags">
+              <span class="tag tag-genre">${w.genre}</span>
+              <span class="tag tag-area">${w.area}</span>
+              ${planTag}
+            </div>
+            <h3>${w.name}</h3>
+            <p class="work-date">${w.date.replace(/-/g,'.')}</p>
+            <p>${w.desc}</p>
+            ${linkBtn}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  renderWorks();
+</script>
+
+</body>
+</html>
