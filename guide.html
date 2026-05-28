@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご利用案内｜Omoi Web Works</title>
+<meta name="description" content="Omoi Web Worksのご利用案内。制作の流れ・ご用意いただくもの・お支払い・納期・対応範囲などをわかりやすくご説明します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@700&family=Kaisei+Tokumin:wght@700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VFR6WNWB35"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VFR6WNWB35');
+</script>
+<style>
+  :root {
+    --ocean:#1a6b8a; --ocean-mid:#3a9dba; --ocean-pale:#d4eef5;
+    --forest:#3d6b47; --forest-pale:#dceede; --sunset:#d4724a;
+    --bg:#f9f6f0; --white:#ffffff; --text:#1e1e1e; --text-sub:#5a5a5a;
+    --border:#e2d9cc; --radius:12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); font-size:16px; line-height:1.8; }
+
+  header { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 5%; }
+  .header-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .logo { font-family:'Kaisei Tokumin',serif; font-size:1.4rem; font-weight:700; color:var(--ocean); text-decoration:none; }
+  .logo span { color:var(--sunset); }
+  .btn-contact { background:var(--ocean); color:var(--white); padding:0.5rem 1.25rem; border-radius:99px; font-size:0.85rem; text-decoration:none; font-weight:700; }
+
+  .page-hero { background:linear-gradient(160deg,#e8f4f9 0%,#f9f6f0 100%); padding:56px 5% 48px; text-align:center; }
+  .page-hero h1 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; margin-bottom:0.5rem; }
+  .page-hero p { font-size:0.9rem; color:var(--text-sub); }
+
+  .content { max-width:820px; margin:0 auto; padding:56px 5% 80px; }
+  .guide-section { margin-bottom:2.5rem; }
+  .guide-section h2 {
+    font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.2rem; font-weight:700; color:var(--ocean);
+    margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:2px solid var(--ocean-pale);
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .guide-section p { font-size:0.93rem; color:var(--text-sub); line-height:1.9; margin-bottom:0.75rem; }
+  .guide-section ul { padding-left:1.4rem; margin-bottom:0.75rem; }
+  .guide-section ul li { font-size:0.93rem; color:var(--text-sub); line-height:1.9; }
+
+  .info-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; margin-bottom:1rem; }
+  .soft-box { background:var(--ocean-pale); border-radius:var(--radius); padding:1.25rem 1.5rem; font-size:0.9rem; color:var(--ocean); line-height:1.8; margin-top:0.75rem; }
+  .warn-box { background:#fffbf0; border:1px solid #f0c040; border-radius:var(--radius); padding:1.25rem 1.5rem; font-size:0.9rem; color:#7a5800; line-height:1.8; margin-top:0.75rem; }
+
+  table.g-table { width:100%; border-collapse:collapse; font-size:0.9rem; margin:0.5rem 0; }
+  table.g-table th { background:var(--ocean-pale); color:var(--ocean); padding:0.6rem 1rem; text-align:left; font-weight:700; }
+  table.g-table td { padding:0.6rem 1rem; border-bottom:1px solid var(--border); color:var(--text-sub); }
+  table.g-table tr:last-child td { border-bottom:none; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .col-box { border-radius:var(--radius); padding:1.25rem 1.5rem; }
+  .col-ok { background:var(--forest-pale); }
+  .col-ok h3 { font-size:0.95rem; color:var(--forest); margin-bottom:0.6rem; }
+  .col-ok li { color:#3d5b44; }
+  .col-ng { background:#f5f0ea; }
+  .col-ng h3 { font-size:0.95rem; color:var(--text-sub); margin-bottom:0.6rem; }
+  .col-ng li { color:var(--text-sub); }
+  .col-box ul { padding-left:1.2rem; }
+  .col-box li { font-size:0.85rem; line-height:1.9; }
+
+  .back-btn { display:inline-flex; align-items:center; gap:0.5rem; background:var(--ocean); color:var(--white); padding:0.75rem 1.75rem; border-radius:99px; text-decoration:none; font-weight:700; font-size:0.9rem; margin-top:2rem; }
+
+  footer { background:#0f3d50; color:rgba(255,255,255,0.6); text-align:center; padding:2rem 5%; font-size:0.82rem; }
+  footer a { color:rgba(255,255,255,0.6); text-decoration:none; margin:0 1rem; }
+  .footer-logo { font-family:'Kaisei Tokumin',serif; font-size:1.3rem; color:var(--white); font-weight:700; display:block; margin-bottom:0.75rem; }
+  .footer-logo span { color:var(--ocean-pale); }
+
+  @media (max-width:600px) { .two-col { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Omoi<span>Web</span>Works</a>
+    <a href="index.html#contact" class="btn-contact">無料相談</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>ご利用案内</h1>
+  <p>はじめての方にも安心してご依頼いただけるよう、わかりやすくまとめました</p>
+</div>
+
+<div class="content">
+
+  <!-- 制作の流れ -->
+  <div class="guide-section">
+    <h2>📝 制作の流れ</h2>
+    <table class="g-table">
+      <tr><th>STEP</th><th>内容</th></tr>
+      <tr><td>① ご相談</td><td>LINE・お問い合わせフォーム・InstagramのDMからお気軽にご連絡ください</td></tr>
+      <tr><td>② 掲載内容の確認</td><td>どんな内容を載せたいか、一緒に整理します</td></tr>
+      <tr><td>③ 素材のご提出</td><td>写真や文章など、必要なものをお送りいただきます</td></tr>
+      <tr><td>④ 制作</td><td>いただいた素材をもとにホームページを制作します</td></tr>
+      <tr><td>⑤ ご確認・修正</td><td>完成イメージをご確認いただき、修正します</td></tr>
+      <tr><td>⑥ 公開</td><td>サイトを公開し、使い方もご説明します</td></tr>
+    </table>
+  </div>
+
+  <!-- ご用意いただくもの -->
+  <div class="guide-section">
+    <h2>📦 ご用意いただくもの</h2>
+    <div class="info-card">
+      <ul>
+        <li>お店の写真</li>
+        <li>ロゴ画像（あれば）</li>
+        <li>メニュー表</li>
+        <li>営業時間・定休日</li>
+        <li>住所・予約方法</li>
+        <li>Instagram・LINEなどのURL</li>
+        <li>載せたい文章や伝えたいこと</li>
+      </ul>
+    </div>
+    <div class="soft-box">
+      💡 文章がまとまっていなくても大丈夫です。ヒアリング内容をもとに、こちらで読みやすく整理しますのでご安心ください。
+    </div>
+  </div>
+
+  <!-- 写真がない場合 -->
+  <div class="guide-section">
+    <h2>📷 写真が少ない場合</h2>
+    <p>写真が少ない場合もご相談ください。お手持ちの写真を使うほか、必要に応じてフリー素材や簡単な撮影サポートで対応できます。</p>
+    <div class="warn-box">
+      ※ 撮影サポートは泉州エリア内・別途料金（¥10,000〜）となります。
+    </div>
+  </div>
+
+  <!-- 修正回数の数え方 -->
+  <div class="guide-section">
+    <h2>✏️ 修正回数の数え方</h2>
+    <p>修正内容は、できるだけまとめてお送りください。1回分の修正は、1度にまとめてご依頼いただいた内容を確認・反映する作業を指します。</p>
+  </div>
+
+  <!-- お支払い -->
+  <div class="guide-section">
+    <h2>💳 お支払いについて</h2>
+    <table class="g-table">
+      <tr><th>プラン</th><th>お支払いタイミング</th></tr>
+      <tr><td>お店のミニ案内ページ</td><td>制作開始前に全額</td></tr>
+      <tr><td>モニター専用プラン</td><td>制作開始前に全額（または50％前払い）</td></tr>
+      <tr><td>はじめてのホームページ</td><td>50％を着手前・残り50％を公開前</td></tr>
+      <tr><td>しっかり紹介ホームページ</td><td>50％を着手前・残り50％を公開前</td></tr>
+    </table>
+    <p style="font-size:0.85rem;margin-top:0.5rem;">お支払い方法は銀行振込・現金払いに対応しています。</p>
+  </div>
+
+  <!-- キャンセル -->
+  <div class="guide-section">
+    <h2>🔖 キャンセルについて</h2>
+    <p>制作開始後のキャンセルについては、進行状況に応じて料金が発生する場合があります。着手後のご返金は原則として対応いたしかねますので、あらかじめご了承ください。</p>
+    <div class="soft-box">
+      💡 不安な点がある場合は、お申し込み前にお気軽にご相談ください。
+    </div>
+  </div>
+
+  <!-- 公開方法・維持費 -->
+  <div class="guide-section">
+    <h2>🌐 公開方法・維持費について</h2>
+    <p>ホームページの公開方法や維持費についても、事前に分かりやすくご案内します。独自ドメイン（例：omoi-cafe.com）をご希望の場合は、ドメイン取得費用が別途かかります。</p>
+    <div class="warn-box">
+      ※ 独自ドメインは年間¥1,000〜程度が目安です。ドメインの種類によって金額が変わります。これらの費用はお客さまに直接ご契約・お支払いいただく形となります。
+    </div>
+  </div>
+
+  <!-- 納期 -->
+  <div class="guide-section">
+    <h2>📅 納期の目安</h2>
+    <table class="g-table">
+      <tr><th>プラン</th><th>納期目安</th></tr>
+      <tr><td>お店のミニ案内ページ</td><td>素材が揃ってから1〜2週間</td></tr>
+      <tr><td>モニター専用プラン</td><td>素材が揃ってから2〜3週間</td></tr>
+      <tr><td>はじめてのホームページ</td><td>素材が揃ってから2〜4週間</td></tr>
+      <tr><td>しっかり紹介ホームページ</td><td>素材が揃ってから1〜2ヶ月</td></tr>
+    </table>
+    <div class="warn-box">
+      ※ 制作期間は、掲載内容や素材の準備状況によって前後します。上記は、必要な素材が揃ってからの目安です。
+    </div>
+  </div>
+
+  <!-- できること・できないこと -->
+  <div class="guide-section">
+    <h2>✅ 対応できること・できないこと</h2>
+    <div class="two-col">
+      <div class="col-box col-ok">
+        <h3>✔ 対応できること</h3>
+        <ul>
+          <li>1ページ型ホームページ制作</li>
+          <li>スマホ対応</li>
+          <li>基本情報の整理</li>
+          <li>お店紹介文の整理</li>
+          <li>Google Map設置</li>
+          <li>SNSリンク設置</li>
+          <li>お問い合わせ導線</li>
+          <li>軽微な修正対応</li>
+        </ul>
+      </div>
+      <div class="col-box col-ng">
+        <h3>✗ 現在対応していないこと</h3>
+        <ul>
+          <li>ECサイト制作</li>
+          <li>予約システムの開発</li>
+          <li>会員サイト</li>
+          <li>大規模サイト制作</li>
+          <li>SNS運用代行</li>
+          <li>ロゴ制作</li>
+          <li>本格的な写真撮影</li>
+          <li>広告運用・複雑なシステム開発</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html#contact" class="back-btn">無料相談はこちら →</a>
+</div>
+
+<footer>
+  <span class="footer-logo">Omoi<span>Web</span>Works</span>
+  <div style="margin-bottom:0.75rem;">
+    <a href="index.html">トップページ</a>
+    <a href="service.html">料金・サービス</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="index.html#contact">お問い合わせ</a>
+  </div>
+  <p>© 2026 Omoi Web Works. 大阪府泉州エリアを中心に活動中。</p>
+</footer>
+
+</body>
+</html>

@@ -90,6 +90,7 @@
   .compare-table th { padding: 0.75rem 1rem; text-align: center; font-weight: 700; }
   .compare-table th:first-child { text-align: left; background: var(--bg); }
   .compare-table th.light { background: var(--ocean-pale); color: var(--ocean); }
+  .compare-table th.mid { background: var(--ocean-mid); color: var(--white); }
   .compare-table th.full { background: var(--ocean); color: var(--white); }
   .compare-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--text-sub); }
   .compare-table td:first-child { text-align: left; font-weight: 500; color: var(--text); }
@@ -134,69 +135,168 @@
   <div class="tab-content active" id="tab-seisaku">
     <div class="sec-label">PRODUCTION PLAN</div>
     <h2 class="sec-title">制作プラン</h2>
-    <p class="sec-sub">ホームページを新しく作るプランです。モニター期間中は各プラン先着2名さまを特別価格でご提供しています。</p>
+    <p class="sec-sub">お店の規模やご要望に合わせて、4つのプランをご用意しています。「どれを選べばいいかわからない」という方も、まずはお気軽にご相談ください。</p>
 
-    <!-- ライトプラン -->
+    <!-- プラン比較表 -->
+    <table class="compare-table" style="margin-bottom:2.5rem;">
+      <tr>
+        <th>プラン</th>
+        <th>価格（税込）</th>
+        <th>向いている方</th>
+      </tr>
+      <tr>
+        <td><b>お店のミニ案内ページ</b></td>
+        <td>¥19,800</td>
+        <td>Instagramから基本情報を見せたい方</td>
+      </tr>
+      <tr>
+        <td><b>モニター専用プラン</b></td>
+        <td>¥29,800</td>
+        <td>実績掲載OKで、しっかりめの1ページを作りたい方</td>
+      </tr>
+      <tr>
+        <td><b>はじめてのホームページ</b></td>
+        <td>¥60,000〜</td>
+        <td>通常の1ページホームページが欲しい方</td>
+      </tr>
+      <tr>
+        <td><b>しっかり紹介ホームページ</b></td>
+        <td>¥100,000〜</td>
+        <td>複数ページでしっかり紹介したい方</td>
+      </tr>
+    </table>
+
+    <div class="note-box" style="margin-bottom:2.5rem;">
+      💡 <b>迷ったときの選び方</b><br>
+      ・まずは小さく始めたい → <b>お店のミニ案内ページ</b><br>
+      ・実績掲載OKでお得に作りたい → <b>モニター専用プラン</b><br>
+      ・しっかりしたHPが欲しい → <b>はじめてのホームページ</b><br>
+      ・情報量が多い → <b>しっかり紹介ホームページ</b>
+    </div>
+
+    <!-- 1. お店のミニ案内ページ -->
     <div class="plan-card">
-      <p class="plan-name">ライトプラン</p>
-      <p class="plan-desc">お店の基本情報をしっかり伝える1ページ構成のサイト（ランディングページ）。「まずはネット上に存在したい」「SNSだけでなくホームページを持ちたい」というお店に最適です。</p>
+      <p class="plan-name">📱 お店のミニ案内ページ</p>
+      <p class="plan-desc">Instagramをメインに使っているお店向けの、スマホで見やすいミニ案内ページです。営業時間・アクセス・予約方法・SNSリンクなど、お客さまが知りたい基本情報をコンパクトにまとめます。「ホームページまではまだ必要ないけれど、Instagramのプロフィールから見てもらえる案内ページがほしい」という方におすすめです。</p>
       <div class="plan-price-wrap">
-        <span class="plan-price-monitor">¥29,800〜</span>
-        <span class="plan-price-normal">通常 ¥60,000〜</span>
-        <span class="plan-price-note">（税込・モニター先着2名）</span>
+        <span class="plan-price-regular">¥19,800</span>
+        <span style="font-size:0.82rem;color:var(--text-sub);">（税込）</span>
+      </div>
+      <table class="include-table">
+        <tr><th colspan="2">含まれる内容</th></tr>
+        <tr><td>ページ数</td><td>簡易1ページ（案内ページ型）</td></tr>
+        <tr><td>お店紹介</td><td><span class="check">✔</span> 簡単な紹介</td></tr>
+        <tr><td>営業時間・定休日</td><td><span class="check">✔</span></td></tr>
+        <tr><td>アクセス・GoogleMap</td><td><span class="check">✔</span></td></tr>
+        <tr><td>簡単なメニュー紹介</td><td><span class="check">✔</span></td></tr>
+        <tr><td>各種ボタン</td><td>LINE・予約サイト・Instagram・問い合わせ先など</td></tr>
+        <tr><td>スマホ対応</td><td><span class="check">✔</span> 対応</td></tr>
+        <tr><td>納期目安</td><td>約1〜2週間</td></tr>
+      </table>
+      <div class="addon-box">
+        <h4>📌 ご注意ください</h4>
+        <p style="font-size:0.85rem;color:#7a5800;">お店のミニ案内ページは、基本情報をコンパクトにまとめる簡易プランです。お店の想いやこだわり、メニュー内容をしっかり紹介したい場合は、「はじめてのホームページプラン」または「モニター専用プラン」がおすすめです。</p>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <a href="sample-mini.html" target="_blank" style="display:inline-block;background:var(--ocean);color:var(--white);font-size:0.88rem;font-weight:700;padding:0.6rem 1.5rem;border-radius:99px;text-decoration:none;">📱 ミニ案内ページのサンプルを見る →</a>
+      </div>
+    </div>
+
+    <!-- 2. モニター専用プラン -->
+    <div class="plan-card featured">
+      <div class="plan-badge">🎉 先着3名限定</div>
+      <p class="plan-name">モニター専用プラン</p>
+      <p class="plan-desc">制作実績として掲載可能なお店さま向けの限定プランです。Instagramだけでは伝えきれないお店の想いや基本情報を、スマホで見やすい1ページホームページに整理します。「お店のミニ案内ページ」よりもしっかりした内容を、お得な価格でご提供します。</p>
+      <div class="plan-price-wrap">
+        <span class="plan-price-regular" style="color:var(--sunset);">¥29,800</span>
+        <span style="font-size:0.82rem;color:var(--text-sub);">（税込・先着3名）</span>
+      </div>
+      <table class="include-table">
+        <tr><th colspan="2">含まれる内容</th></tr>
+        <tr><td>ページ数</td><td>1ページ（しっかり型）</td></tr>
+        <tr><td>お店紹介・想い・こだわり</td><td><span class="check">✔</span> 文章整理</td></tr>
+        <tr><td>メニュー・サービス紹介</td><td><span class="check">✔</span></td></tr>
+        <tr><td>営業時間・定休日</td><td><span class="check">✔</span></td></tr>
+        <tr><td>アクセス・GoogleMap</td><td><span class="check">✔</span></td></tr>
+        <tr><td>SNSリンク・予約導線</td><td><span class="check">✔</span></td></tr>
+        <tr><td>基本SEO設定</td><td><span class="check">✔</span></td></tr>
+        <tr><td>納品後の無料修正</td><td>納品後2週間以内・2回まで</td></tr>
+        <tr><td>スマホ対応</td><td><span class="check">✔</span> 対応</td></tr>
+      </table>
+      <div class="addon-box">
+        <h4>📌 ご注意ください</h4>
+        <p style="font-size:0.85rem;color:#7a5800;">モニター価格のため、制作後にOmoi Web Worksの制作実績として紹介させていただくことを前提としています。掲載内容や掲載範囲については、事前にご相談のうえ決定します。</p>
+      </div>
+    </div>
+
+    <!-- 3. はじめてのホームページプラン -->
+    <div class="plan-card">
+      <p class="plan-name">はじめてのホームページプラン</p>
+      <p class="plan-desc">小さなお店の基本情報を、スマホで見やすい1ページにまとめる通常プランです。メニュー・営業時間・アクセス・予約方法に加えて、お店の想いやこだわりも整理し、Instagramと一緒に使えるホームページを制作します。</p>
+      <div class="plan-price-wrap">
+        <span class="plan-price-regular">¥60,000〜</span>
+        <span style="font-size:0.82rem;color:var(--text-sub);">（税込）</span>
       </div>
       <table class="include-table">
         <tr><th colspan="2">含まれる内容</th></tr>
         <tr><td>ページ数</td><td>1ページ（LP形式）</td></tr>
-        <tr><td>スマホ対応</td><td><span class="check">✔</span> 対応</td></tr>
+        <tr><td>お店紹介・想い・こだわり</td><td><span class="check">✔</span></td></tr>
+        <tr><td>メニュー・サービス紹介</td><td><span class="check">✔</span></td></tr>
         <tr><td>お問い合わせフォーム</td><td><span class="check">✔</span> 設置</td></tr>
-        <tr><td>GoogleMap埋め込み</td><td><span class="check">✔</span> 設置</td></tr>
-        <tr><td>SNSリンク設置</td><td><span class="check">✔</span> 対応</td></tr>
+        <tr><td>GoogleMap・SNSリンク</td><td><span class="check">✔</span></td></tr>
+        <tr><td>基本SEO設定</td><td><span class="check">✔</span></td></tr>
+        <tr><td>Googleアナリティクス設置</td><td><span class="check">✔</span></td></tr>
         <tr><td>納品後の無料修正</td><td>納品後2週間以内・2回まで</td></tr>
         <tr><td>納期目安</td><td>約2〜3週間</td></tr>
       </table>
       <div class="addon-box">
         <h4>⚠️ 追加料金が発生するケース</h4>
         <ul class="addon-list">
-          <li><span>納品後2週間以降の修正</span><span>¥5,000/回</span></li>
+          <li><span>納品後2週間以降の修正</span><span>¥3,300〜/回</span></li>
         </ul>
         <p style="font-size:0.82rem;color:#7a5800;margin-top:0.75rem;">※ 写真撮影・ドメイン取得は「オプション」タブをご覧ください。<br>※ 保守プランにご加入の場合、修正は月額料金内でカバーされます。</p>
       </div>
     </div>
 
-    <!-- スタンダードプラン -->
-    <div class="plan-card featured">
-      <div class="plan-badge">⭐ おすすめ</div>
-      <p class="plan-name">スタンダードプラン</p>
-      <p class="plan-desc">お店の魅力をしっかり伝えるマルチページサイト。トップページ・メニュー・アクセス・お問い合わせなど、複数ページで構成します。カフェ・整体院・美容室など幅広い業種に対応しています。</p>
+    <!-- 4. しっかり紹介ホームページプラン -->
+    <div class="plan-card">
+      <p class="plan-name">しっかり紹介ホームページプラン</p>
+      <p class="plan-desc">お店の紹介・メニュー・サービス内容・お知らせ・お問い合わせなどをページごとに分けて、しっかり見せたい方向けのホームページ制作プランです。1ページでは情報が収まりきらないお店におすすめです。</p>
       <div class="plan-price-wrap">
-        <span class="plan-price-monitor">¥59,800〜</span>
-        <span class="plan-price-normal">通常 ¥100,000〜</span>
-        <span class="plan-price-note">（税込・モニター先着2名）</span>
+        <span class="plan-price-regular">¥100,000〜</span>
+        <span style="font-size:0.82rem;color:var(--text-sub);">（税込）</span>
       </div>
       <table class="include-table">
         <tr><th colspan="2">含まれる内容</th></tr>
         <tr><td>ページ数</td><td>5ページまで</td></tr>
-        <tr><td>スマホ対応</td><td><span class="check">✔</span> 対応</td></tr>
+        <tr><td>ページ例</td><td>トップ・メニュー・お店紹介・お知らせ・お問い合わせ</td></tr>
         <tr><td>お問い合わせフォーム</td><td><span class="check">✔</span> 設置</td></tr>
-        <tr><td>GoogleMap埋め込み</td><td><span class="check">✔</span> 設置</td></tr>
-        <tr><td>SNSリンク設置</td><td><span class="check">✔</span> 対応</td></tr>
-        <tr><td>Googleアナリティクス設置</td><td><span class="check">✔</span> 設置</td></tr>
+        <tr><td>GoogleMap・SNSリンク</td><td><span class="check">✔</span></td></tr>
+        <tr><td>基本SEO設定</td><td><span class="check">✔</span></td></tr>
+        <tr><td>Googleアナリティクス設置</td><td><span class="check">✔</span></td></tr>
+        <tr><td>お知らせページ</td><td><span class="check">✔</span></td></tr>
         <tr><td>納品後の無料修正</td><td>納品後1ヶ月以内・3回まで</td></tr>
         <tr><td>納期目安</td><td>約4〜6週間</td></tr>
       </table>
       <div class="addon-box">
         <h4>⚠️ 追加料金が発生するケース</h4>
         <ul class="addon-list">
-          <li><span>6ページ目以降の追加</span><span>¥10,000/ページ</span></li>
-          <li><span>納品後1ヶ月以降の修正</span><span>¥5,000/回</span></li>
+          <li><span>6ページ目以降の追加</span><span>¥22,000/ページ</span></li>
+          <li><span>納品後1ヶ月以降の修正</span><span>¥3,300〜/回</span></li>
         </ul>
         <p style="font-size:0.82rem;color:#7a5800;margin-top:0.75rem;">※ 写真撮影・ドメイン取得は「オプション」タブをご覧ください。<br>※ 保守プランにご加入の場合、修正は月額料金内でカバーされます。</p>
       </div>
     </div>
 
+    <!-- ミニ案内とHPの違い -->
+    <div class="addon-box" style="background:var(--ocean-pale);border-color:var(--ocean-mid);">
+      <h4 style="color:var(--ocean);">💡 「ミニ案内ページ」と「1ページホームページ」の違い</h4>
+      <p style="font-size:0.85rem;color:var(--ocean);margin-bottom:0.5rem;"><b>お店のミニ案内ページ</b><br>Instagramのプロフィールから見てもらう、基本情報のまとめページ。営業時間・アクセス・予約先・SNSリンクなどをコンパクトに整理。「まずは最低限の情報をまとめたい方」向け。</p>
+      <p style="font-size:0.85rem;color:var(--ocean);"><b>1ページホームページ（モニター／はじめて）</b><br>お店の紹介・想い・こだわり・メニュー・予約導線までしっかり整理。Instagramだけでは伝えきれない雰囲気や魅力も伝えられる。「お店のことをもう少し丁寧に伝えたい方」向け。</p>
+    </div>
+
     <div class="note-box">
-      💡 どちらのプランも、まずは無料相談でお話を聞かせてください。内容によってはお見積もりが変わる場合があります。
+      💡 どのプランも、まずは無料相談でお話を聞かせてください。内容によってはお見積もりが変わる場合があります。
     </div>
 
     <a href="index.html#contact" class="back-btn">無料相談はこちら →</a>
@@ -211,57 +311,57 @@
     <table class="compare-table">
       <tr>
         <th></th>
-        <th class="light">ライト保守<br><span style="font-size:1.1rem;">¥10,000/月</span></th>
-        <th class="full">おまかせ保守<br><span style="font-size:1.1rem;">¥20,000/月</span></th>
+        <th class="light">ライトサポート<br><span style="font-size:1.1rem;">¥5,500/月</span></th>
+        <th class="full">スタンダードサポート<br><span style="font-size:1.1rem;">¥8,800/月</span></th>
       </tr>
       <tr>
-        <td>文字・営業時間の修正</td>
-        <td>月3回まで</td>
-        <td>月5回まで</td>
+        <td>軽微な修正</td>
+        <td>月1回まで</td>
+        <td>月2回まで</td>
       </tr>
       <tr>
         <td>写真の差し替え</td>
-        <td>月3枚まで</td>
-        <td>月10枚まで</td>
+        <td><span class="check">✔</span></td>
+        <td><span class="check">✔</span></td>
       </tr>
       <tr>
         <td>お知らせ・ニュース更新</td>
-        <td>修正回数に含む</td>
-        <td>修正回数に含む</td>
+        <td><span class="check">✔</span></td>
+        <td><span class="check">✔</span></td>
       </tr>
       <tr>
-        <td>新規ページ追加</td>
+        <td>簡単なご相談</td>
         <td><span class="cross">✗</span></td>
-        <td>月1ページまで</td>
+        <td><span class="check">✔</span></td>
       </tr>
       <tr>
         <td>バックアップ管理</td>
-        <td><span class="check">✔</span> GitHub管理</td>
-        <td><span class="check">✔</span> GitHub管理</td>
+        <td><span class="check">✔</span></td>
+        <td><span class="check">✔</span></td>
       </tr>
       <tr>
         <td>メール返信目安</td>
         <td>5営業日以内</td>
-        <td>2〜3営業日以内</td>
-      </tr>
-      <tr>
-        <td>月次アクセスレポート</td>
-        <td><span class="cross">✗</span></td>
-        <td><span class="check">✔</span> 毎月お届け</td>
+        <td>3〜4営業日以内</td>
       </tr>
     </table>
 
+    <div class="addon-box" style="background:#fffbf0;border-color:#f0c040;">
+      <h4>⚠️ 月の回数を超える修正について</h4>
+      <p style="font-size:0.85rem;color:#7a5800;">月の対応回数（ライト1回・スタンダード2回）を超える修正は、単発修正料金（¥3,300〜）または内容に応じた別途お見積もりで対応いたします。「月額内で何度でも」ではない点をあらかじめご了承ください。</p>
+    </div>
+
     <div class="addon-box">
-      <h4>⚠️ 各プランの上限を超えた場合の追加料金</h4>
-      <ul class="addon-list">
-        <li><span>修正回数超過（1回につき）</span><span>¥1,000/回</span></li>
-        <li><span>写真差し替え超過（1枚につき）</span><span>¥500/枚</span></li>
-        <li><span>新規ページ追加（おまかせ保守の上限超過）</span><span>¥10,000/ページ</span></li>
+      <h4>💡 保守に含まれる「軽微な修正」とは</h4>
+      <ul class="addon-list" style="list-style:none;padding:0;">
+        <li style="border:none;justify-content:flex-start;"><span>営業時間・定休日の変更／料金表の一部修正／写真の差し替え</span></li>
+        <li style="border:none;justify-content:flex-start;"><span>Instagram・Googleマップのリンク変更／お知らせ追加／誤字修正など</span></li>
       </ul>
+      <p style="font-size:0.82rem;color:#7a5800;margin-top:0.75rem;">※ 新規ページ追加・デザイン全体の作り直し・予約システム導入などは別途お見積もりとなります。</p>
     </div>
 
     <div class="note-box">
-      💡 保守プランは制作プランとセットでのご契約となります。月次アクセスレポートでは、サイトへのアクセス数・どこから来たかなどをわかりやすくまとめてお届けします。
+      💡 保守プランは制作プランとセットでのご契約となります。「ホームページを公開したけど更新が不安」という方も、安心してお任せいただけます。
     </div>
 
     <div class="addon-box" style="margin-top:1rem;">
@@ -286,7 +386,7 @@
       <p class="plan-name">📸 写真撮影サポート</p>
       <p class="plan-desc">店舗・商品・雰囲気写真の撮影をサポートします。サイトに使えるクオリティの写真を納品します。</p>
       <div class="plan-price-wrap">
-        <span class="plan-price-regular">¥15,000〜</span>
+        <span class="plan-price-regular">¥10,000〜</span>
         <span style="font-size:0.82rem;color:var(--text-sub);">（税込・要相談）</span>
       </div>
       <table class="include-table">
@@ -334,6 +434,24 @@
       💡 オプションは制作プランとセットでのご利用となります。ご不明な点はお気軽にご相談ください。
     </div>
 
+    <h3 style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:1.2rem;font-weight:700;margin:2.5rem 0 0.5rem;">単発修正メニュー</h3>
+    <p class="sec-sub" style="margin-bottom:1.5rem;">保守プランにご加入されていない方向けの、その都度の修正メニューです。「たまにしか更新しない」という方はこちらをご利用ください。</p>
+
+    <table class="include-table" style="margin-bottom:1rem;">
+      <tr><th>作業内容</th><th>料金（税込）</th></tr>
+      <tr><td>テキスト修正</td><td>¥3,300〜</td></tr>
+      <tr><td>写真の差し替え</td><td>¥3,300〜</td></tr>
+      <tr><td>お知らせ追加</td><td>¥5,500〜</td></tr>
+      <tr><td>料金表の修正</td><td>¥5,500〜</td></tr>
+      <tr><td>セクション追加</td><td>¥11,000〜</td></tr>
+      <tr><td>ページ追加</td><td>¥22,000〜</td></tr>
+    </table>
+    <p style="font-size:0.82rem;color:var(--text-sub);margin-bottom:1.5rem;">※ 単発修正の最低料金は¥3,300〜となります。内容により料金が変わる場合がありますので、まずはご相談ください。</p>
+
+    <div class="note-box" style="background:var(--ocean-pale);">
+      💡 定期的に更新される場合は、保守プラン（月¥5,500〜）の方がお得になることが多いです。お気軽にご相談ください。
+    </div>
+
     <a href="index.html#contact" class="back-btn">無料相談はこちら →</a>
   </div>
 
@@ -343,6 +461,7 @@
   <span class="footer-logo">Omoi<span>Web</span>Works</span>
   <div style="margin-bottom:0.75rem;">
     <a href="index.html">トップページ</a>
+    <a href="guide.html">ご利用案内</a>
     <a href="privacy.html">プライバシーポリシー</a>
     <a href="index.html#contact">お問い合わせ</a>
   </div>
