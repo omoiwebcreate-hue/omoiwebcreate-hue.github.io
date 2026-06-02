@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omoi Web Works｜準備中</title>
+  <meta name="description" content="泉州の小さなお店の魅力を、WebとSNSで伝わる形に。7月末ごろの受付開始に向けて準備中です。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #faf8f4;
+      --parchment:#f2ede4;
+      --linen:    #e8e0d2;
+      --sand:     #d4c8b4;
+      --brown-lt: #b5a28a;
+      --brown:    #8c7355;
+      --brown-dk: #5c4a35;
+      --ink:      #2e261d;
+      --ink-soft: #5a4e40;
+      --ink-mute: #8a7d6e;
+      --white:    #fffef9;
+
+      --ff-serif:  'Shippori Mincho', 'Georgia', serif;
+      --ff-gothic: 'Zen Kaku Gothic New', sans-serif;
+      --ff-roman:  'Cormorant Garamond', Georgia, serif;
+
+      --section-gap: 96px;
+      --container:   640px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Noise texture overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: .6;
+    }
+
+    /* ─── Layout helpers ─── */
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: 28px;
+    }
+
+    section {
+      padding-block: var(--section-gap);
+    }
+
+    /* ─── Header / Nav ─── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250,248,244,.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--linen);
+    }
+
+    .header-logo {
+      font-family: var(--ff-roman);
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: .12em;
+      color: var(--brown-dk);
+    }
+
+    .header-badge {
+      font-family: var(--ff-gothic);
+      font-weight: 400;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      color: var(--brown);
+      border: 1px solid var(--brown-lt);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+      padding-inline: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative circle */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(520px, 90vw);
+      height: min(520px, 90vw);
+      border-radius: 50%;
+      border: 1px solid var(--linen);
+      opacity: .6;
+      pointer-events: none;
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(360px, 70vw);
+      height: min(360px, 70vw);
+      border-radius: 50%;
+      border: 1px solid var(--sand);
+      opacity: .4;
+      pointer-events: none;
+      animation: pulse 6s ease-in-out infinite .8s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: .4; }
+      50%       { transform: translate(-50%,-50%) scale(1.04); opacity: .7; }
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-en {
+      font-family: var(--ff-roman);
+      font-weight: 300;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      letter-spacing: .18em;
+      color: var(--brown-dk);
+      line-height: 1.2;
+      margin-bottom: 6px;
+      opacity: 0;
+      animation: fadeUp .9s ease forwards .2s;
+    }
+
+    .hero-sub {
+      font-family: var(--ff-roman);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(.8rem, 3vw, 1rem);
+      letter-spacing: .22em;
+      color: var(--brown-lt);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp .9s ease forwards .5s;
+    }
+
+    .hero-tagline {
+      font-family: var(--ff-serif);
+      font-weight: 500;
+      font-size: clamp(1rem, 4.5vw, 1.35rem);
+      line-height: 2.1;
+      color: var(--ink);
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp .9s ease forwards .7s;
+    }
+
+    .hero-notice {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      color: var(--ink-mute);
+      border-top: 1px solid var(--linen);
+      padding-top: 24px;
+      opacity: 0;
+      animation: fadeUp .9s ease forwards .95s;
+    }
+
+    .hero-notice span {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--brown-lt);
+      margin-right: 8px;
+      vertical-align: middle;
+      margin-bottom: 2px;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .25; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp .9s ease forwards 1.4s;
+    }
+
+    .scroll-hint span {
+      font-family: var(--ff-roman);
+      font-style: italic;
+      font-size: .7rem;
+      letter-spacing: .2em;
+      color: var(--brown-lt);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--brown-lt), transparent);
+      animation: scrollDrop 1.8s ease-in-out infinite 1.4s;
+    }
+
+    @keyframes scrollDrop {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: 28px;
+    }
+
+    .divider-line { flex: 1; height: 1px; background: var(--linen); }
+
+    .divider-mark {
+      font-family: var(--ff-roman);
+      font-style: italic;
+      font-size: .75rem;
+      letter-spacing: .2em;
+      color: var(--sand);
+    }
+
+    /* ─── Section label ─── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .section-label-en {
+      font-family: var(--ff-roman);
+      font-style: italic;
+      font-size: .75rem;
+      letter-spacing: .25em;
+      color: var(--brown-lt);
+    }
+
+    .section-label-line {
+      flex: 1;
+      height: 1px;
+      background: var(--linen);
+    }
+
+    /* ─── About ─── */
+    #about {
+      background: var(--white);
+    }
+
+    .about-title {
+      font-family: var(--ff-serif);
+      font-weight: 600;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      line-height: 1.8;
+      color: var(--brown-dk);
+      margin-bottom: 28px;
+    }
+
+    .about-body {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .92rem;
+      line-height: 2.1;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+    }
+
+    .about-quotes {
+      border-left: 2px solid var(--sand);
+      padding-left: 20px;
+      margin-block: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .about-quotes p {
+      font-family: var(--ff-serif);
+      font-weight: 400;
+      font-size: .9rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    /* ─── Services ─── */
+    #services {
+      background: var(--parchment);
+    }
+
+    .services-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 22px;
+      background: var(--white);
+      border-radius: 6px;
+      border: 1px solid var(--linen);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+
+    .service-item:hover {
+      border-color: var(--sand);
+      transform: translateY(-2px);
+    }
+
+    .service-num {
+      font-family: var(--ff-roman);
+      font-style: italic;
+      font-size: .75rem;
+      color: var(--brown-lt);
+      letter-spacing: .1em;
+      min-width: 28px;
+      padding-top: 3px;
+    }
+
+    .service-text {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .88rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    /* ─── Coming soon ─── */
+    #coming {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .coming-date {
+      font-family: var(--ff-roman);
+      font-weight: 300;
+      font-size: clamp(2rem, 10vw, 3rem);
+      letter-spacing: .12em;
+      color: var(--brown-dk);
+      margin-bottom: 8px;
+    }
+
+    .coming-date-sub {
+      font-family: var(--ff-serif);
+      font-weight: 400;
+      font-size: .85rem;
+      color: var(--brown-lt);
+      letter-spacing: .15em;
+      margin-bottom: 32px;
+    }
+
+    .coming-body {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .88rem;
+      color: var(--ink-mute);
+      line-height: 2.1;
+      max-width: 460px;
+      margin-inline: auto;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      max-width: 320px;
+      margin: 36px auto 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--ff-roman);
+      font-style: italic;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      color: var(--brown-lt);
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 3px;
+      background: var(--linen);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brown-lt), var(--brown));
+      border-radius: 2px;
+      width: 0;
+      animation: fillBar 1.6s cubic-bezier(.4,0,.2,1) forwards .3s;
+    }
+
+    @keyframes fillBar {
+      to { width: 45%; }
+    }
+
+    /* ─── Instagram ─── */
+    #instagram {
+      background: var(--parchment);
+      text-align: center;
+    }
+
+    .insta-title {
+      font-family: var(--ff-serif);
+      font-weight: 500;
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      color: var(--brown-dk);
+      margin-bottom: 16px;
+    }
+
+    .insta-body {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .88rem;
+      color: var(--ink-mute);
+      line-height: 2;
+      margin-bottom: 32px;
+    }
+
+    .btn-insta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: transparent;
+      border: 1px solid var(--brown-lt);
+      border-radius: 30px;
+      color: var(--brown-dk);
+      text-decoration: none;
+      font-family: var(--ff-gothic);
+      font-weight: 400;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .btn-insta:hover {
+      background: var(--brown-dk);
+      color: var(--cream);
+      border-color: var(--brown-dk);
+    }
+
+    .btn-insta svg {
+      width: 17px; height: 17px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 40px 28px;
+      background: var(--ink);
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--ff-roman);
+      font-weight: 300;
+      font-size: 1.1rem;
+      letter-spacing: .2em;
+      color: var(--sand);
+      margin-bottom: 8px;
+    }
+
+    .footer-area {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      color: var(--ink-mute);
+      margin-bottom: 24px;
+    }
+
+    .footer-note {
+      font-family: var(--ff-gothic);
+      font-weight: 300;
+      font-size: .7rem;
+      color: var(--ink-mute);
+      letter-spacing: .05em;
+    }
+
+    /* ─── Scroll reveal ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 400px) {
+      :root { --section-gap: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-logo">Omoi Web Works</div>
+    <div class="header-badge">準備中</div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-inner">
+      <h1 class="hero-en">Omoi Web Works</h1>
+      <p class="hero-sub">Senshu, Osaka</p>
+      <p class="hero-tagline">
+        泉州の小さなお店の魅力を、<br>
+        WebとSNSで伝わる形に。
+      </p>
+      <p class="hero-notice">
+        <span></span>ただいま、7月末ごろの受付開始に向けて準備中です。
+      </p>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">— about —</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="section-label-en">About</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="about-title reveal">
+        Omoi Web Worksについて
+      </h2>
+      <p class="about-body reveal">
+        Omoi Web Worksは、泉南・泉州エリアの小さなお店、カフェ、個人店、サロン向けに、想いや魅力が伝わるWebサイト制作を準備しています。
+      </p>
+      <p class="about-body reveal">
+        お店の情報をただ並べるだけではなく、
+      </p>
+      <div class="about-quotes reveal">
+        <p>「どんな想いでお店をしているのか」</p>
+        <p>「どんなお客様に来てほしいのか」</p>
+        <p>「初めての人が迷わず来られるか」</p>
+      </div>
+      <p class="about-body reveal">
+        を一緒に整理しながら、伝わる形にしていきます。
+      </p>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">— services —</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="section-label-en">Services</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="about-title reveal" style="margin-bottom:24px;">準備中の内容</h2>
+      <div class="services-grid">
+        <div class="service-item reveal">
+          <span class="service-num">01</span>
+          <span class="service-text">小さなお店向けのシンプルなWebサイト制作</span>
+        </div>
+        <div class="service-item reveal">
+          <span class="service-num">02</span>
+          <span class="service-text">営業時間、メニュー、アクセス情報の整理</span>
+        </div>
+        <div class="service-item reveal">
+          <span class="service-num">03</span>
+          <span class="service-text">Instagramから見てもらえる案内ページ作成</span>
+        </div>
+        <div class="service-item reveal">
+          <span class="service-num">04</span>
+          <span class="service-text">お店紹介文の作成</span>
+        </div>
+        <div class="service-item reveal">
+          <span class="service-num">05</span>
+          <span class="service-text">泉州エリアのお店・カフェ紹介</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">— coming soon —</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Coming soon -->
+  <section id="coming">
+    <div class="container">
+      <div class="section-label reveal" style="justify-content:center; margin-bottom:28px;">
+        <span class="section-label-en">Coming Soon</span>
+      </div>
+      <p class="coming-date reveal">July, 2026</p>
+      <p class="coming-date-sub reveal">受付開始予定</p>
+      <p class="coming-body reveal">
+        正式な受付開始は、7月末ごろを予定しています。<br>
+        現在は、サービス内容や料金、制作の流れを少しずつ整えているところです。<br>
+        準備の様子はInstagramでも発信していきます。
+      </p>
+      <div class="progress-wrap reveal">
+        <div class="progress-label">
+          <span>preparation</span>
+          <span>45%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">— instagram —</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Instagram -->
+  <section id="instagram">
+    <div class="container">
+      <div class="section-label reveal" style="justify-content:center; margin-bottom:24px;">
+        <span class="section-label-en">Instagram</span>
+      </div>
+      <h2 class="insta-title reveal">Instagramで発信中</h2>
+      <p class="insta-body reveal">
+        準備中の様子や、泉州のお店紹介はInstagramで発信予定です。<br>
+        フォローしてお待ちください。
+      </p>
+      <div class="reveal">
+        <a href="https://www.instagram.com/senshu_log/" target="_blank" rel="noopener noreferrer" class="btn-insta">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+          Instagramを見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-logo">Omoi Web Works</p>
+    <p class="footer-area">Senshu · Osaka · Japan</p>
+    <p class="footer-note">© 2026 Omoi Web Works. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, Math.min(idx * 80, 320));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 2px 16px rgba(46,38,29,.06)'
+        : 'none';
+    }, { passive: true });
+  </script>
+</body>
+</html>
